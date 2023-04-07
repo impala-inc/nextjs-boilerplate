@@ -1,0 +1,32 @@
+{
+	"name": "Node.js & TypeScript",
+	"dockerComposeFile": [
+		"../docker-compose.yml"
+	],
+
+	"service": "app",
+	"workspaceFolder": "/app",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-ceintl.vscode-language-pack-ja",
+				"dsznajder.es7-react-js-snippets",
+				"foxundermoon.next-js",
+				"pulkitgangwar.nextjs-snippets"
+			]
+		}
+	},
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "ruby --version",
+
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode"
+}
