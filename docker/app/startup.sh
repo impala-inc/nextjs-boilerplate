@@ -1,6 +1,8 @@
 #!/bin/sh -e
 
 if ! [ -f package.json ] ; then
+  sudo chown -R 1000:1000 node_modules
+
   yarn create next-app sampleapp \
                                 --ts \
                                 --tailwind \
