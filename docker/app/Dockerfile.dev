@@ -1,1 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:0-18-bullseye
+USER $USERNAME
+RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
+    && mkdir /commandhistory \
+    && touch /commandhistory/.bash_history \
+    && chown -R 1000:1000 /commandhistory \
+    && echo "$SNIPPET" >> "/home/$USERNAME/.bashrc"
