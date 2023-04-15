@@ -17,7 +17,7 @@ services:
     environment:
       - WATCHPACK_POLLING=true
       - NODE_ENV=development
-    command: ["docker/app/startup.sh"]
+    command: ["sh", "docker/app/startup.sh"]
 volumes:
   node_modules:
   bashhistory:
