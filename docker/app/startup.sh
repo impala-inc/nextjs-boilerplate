@@ -1,18 +1,21 @@
 #!/bin/sh -e
 
 if ! [ -f package.json ] ; then
-  sudo chown -R 1000:1000 node_modules
+  sudo chown -R 1000:1000 .
 
-  yarn create next-app sampleapp \
-                                --ts \
-                                --tailwind \
-                                --eslint \
-                                --src-dir \
-                                --experimental-app "No"\
-                                --import-alias "@/*"
-  rm -r sampleapp/node_modules
-  mv sampleapp/* sampleapp/.[^\.]*  .
-  rm -r sampleapp
+  # Install next.js app in tmp directory
+  yarn create next-app tmp \
+                       --ts \
+                       --tailwind \
+                       --eslint \
+                       --src-dir \
+                       --experimental-app "No"\
+                       --import-alias "@/*"
+
+  # Copy next.js app to working directory
+  rm -r tmp/node_modules
+  mv tmp/* tmp/.[^\.]*  .
+  rm -r tmp
 fi
 yarn install
 yarn dev

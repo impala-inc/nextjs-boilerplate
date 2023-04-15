@@ -9,13 +9,11 @@ services:
       dockerfile: docker/app/Dockerfile.dev
     volumes:
       - .:/app:cached
-      - node_modules:/app/node_modules
-      - bashhistory:/commandhistory
+      - node_modules:/app/node_modules:delegated
+      - bashhistory:/commandhistory:delegated
     ports:
       - 3000:3000
     working_dir: /app
-    tty: true
-    stdin_open: true
     environment:
       - WATCHPACK_POLLING=true
       - NODE_ENV=development
