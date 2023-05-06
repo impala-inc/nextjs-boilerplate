@@ -5,6 +5,7 @@ if ! [ -f package.json ] ; then
 
   # Install next.js app in tmp directory
   yarn create next-app tmp \
+                       --app \
                        --ts \
                        --tailwind \
                        --eslint \
